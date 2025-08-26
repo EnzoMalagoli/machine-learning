@@ -1,6 +1,6 @@
 ## Exploração dos Dados
 
-Para o projeto foi utilizado o dataset [](http){:target='blank'}
+Para o projeto foi utilizado o dataset [Kaggle](https://www.kaggle.com/datasets/gabrielsantello/cars-purchase-decision-dataset){:target='blank'} e contém detalhes de clientes que consideraram comprar um automóvel, juntamente com seus salários.
 
 ## Pré-processamento
 

@@ -1,20 +1,9 @@
-# Template de Entrega
+# Exercícios Machine Learning - Enzo Malagoli
 
 
 ???+ info inline end "Edição"
 
     2025.1
-
-
-## Grupo/Kit X
-
-1. João da Silva
-1. Pedro de Souza
-1. Maria Oliveira
-1. Grupo K
-    - João da Silva
-    - Pedro de Souza
-
 
 
 !!! tip "Instruções"
@@ -24,10 +13,10 @@
 
 ## Entregas
 
-- [x] Roteiro 1 - Data 23/02/2025
-- [ ] Roteiro 2
-- [ ] Roteiro 3
-- [ ] Roteiro 4
+- [x] Exercício 1 - Data 29/08/2025
+- [ ] Exercício 2
+- [ ] Exercício 3
+- [ ] Exercício 4
 - [ ] Projeto
 
 ## Diagramas
@@ -86,14 +75,6 @@ flowchart TD
     1.  Caso a variável de ambiente `POSTGRES_DB` não exista ou seja nula - não seja definida no arquivo `.env` - o valor padrão será `projeto`. Vide [documentação](https://docs.docker.com/reference/compose-file/interpolation/){target='_blank'}.
 
     2. Aqui é feito um túnel da porta 5432 do container do banco de dados para a porta 5432 do host (no caso localhost). Em um ambiente de produção, essa porta não deve ser exposta, pois ninguém de fora do compose deveria acessar o banco de dados diretamente.
-
-
-## Exemplo de vídeo
-
-Lorem ipsum dolor sit amet
-
-<iframe width="100%" height="470" src="https://www.youtube.com/embed/3574AYQml8w" allowfullscreen></iframe>
-
 
 ## Referências
 
