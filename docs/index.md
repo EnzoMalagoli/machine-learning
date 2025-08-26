@@ -1,16 +1,6 @@
 # Exercícios Machine Learning - Enzo Malagoli
 
 
-???+ info inline end "Edição"
-
-    2025.1
-
-
-!!! tip "Instruções"
-
-    Vocês devem utilizar este template como um bloco de notas para registrar o que foi feito e o que falta fazer. Vocês devem adicionar as informações necessárias.
-    O template deve ser editado e atualizado a cada entrega, registrando assim a data de entrega e o que foi feito até o momento via Git.
-
 ## Entregas
 
 - [x] Exercício 1 - Data 29/08/2025
