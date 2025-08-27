@@ -53,7 +53,7 @@ O próximo gráfico apresenta a distribuição de clientes por gênero:
 !!! info 
     Observa-se que há uma leve predominância de mulheres no dataset.
 
-O último gráfico apresenta a distribuição do salário anual dos clientes, permitindo visualizar a mediana, a dispersão dos valores e a presença de possíveis extremos.
+O último gráfico apresenta a distribuição do salário anual dos clientes, permitindo visualizar a mediana, a dispersão dos valores e a presença de possíveis extremos:
 
 === "Result"
 
@@ -126,7 +126,40 @@ No código, a normalização foi aplicada às colunas idade e salário anual, tr
 
 ## Divisão dos Dados
 
+Após o pré-processamento, o conjunto de dados precisa ser separado em duas partes: uma para treinamento e outra para teste. Essa divisão é fundamental para que o modelo de Machine Learning aprenda padrões a partir de um grupo de exemplos e, depois, seja avaliado em dados que ainda não foram vistos. Dessa forma, é possível medir a capacidade de generalização do modelo e evitar que ele apenas memorize os exemplos fornecidos.
+
+No código, os atributos escolhidos como preditores foram gênero, idade e salário anual, enquanto a variável-alvo foi Purchased, que indica se o cliente comprou ou não o produto. A divisão foi feita em 70% para treino e 30% para teste, garantindo que a proporção de clientes que compraram e não compraram fosse preservada em ambos os subconjuntos. Essa separação assegura que a avaliação futura seja mais confiável e representativa.
+
+=== "Result"
+
+    ``` python exec="on" html="0"
+    --8<-- "./docs/arvoredecisao/divisao.py"
+    ```
+=== "Code"
+
+    ``` python
+    --8<-- "./docs/arvoredecisao/divisao.py"
+    ```
+
 ## Treinamento do Modelo
+
+Essa é a árvore de decisão feita:
+
+=== "Decision Tree"
+
+    ``` python exec="on" html="1"
+    --8<-- "./docs/arvoredecisao/tree.py"
+    ```
+=== "Dataset"
+
+    ``` python exec="on" html="0"
+    --8<-- "./docs/arvoredecisao/dataset.py"
+    ```
+=== "Code"
+
+    ``` python
+    --8<-- "./docs/arvoredecisao/tree.py"
+    ```
 
 ## Avaliação do Modelo
 

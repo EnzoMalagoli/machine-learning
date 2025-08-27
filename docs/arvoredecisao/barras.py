@@ -6,10 +6,10 @@ from io import BytesIO
 url = "https://raw.githubusercontent.com/EnzoMalagoli/machine-learning/refs/heads/main/data/car_data.csv"
 df = pd.read_csv(url)
 
-# --- ETAPA 1: Data Cleaning (apenas para garantir consistência) ---
+# --- ETAPA 1: Data Cleaning 
 df["Gender"].fillna(df["Gender"].mode()[0], inplace=True)
 
-# Contagem de cada gênero
+
 counts = df["Gender"].value_counts()
 
 # --- PLOT: Distribuição por Gênero ---
@@ -25,7 +25,7 @@ ax.set_xlabel("Gênero")
 ax.set_ylabel("Quantidade")
 ax.grid(axis="y", linestyle="--", alpha=0.6)
 
-# Salvar em buffer como SVG (para Pages)
+
 buffer = BytesIO()
 plt.savefig(buffer, format="svg", bbox_inches="tight")
 buffer.seek(0)

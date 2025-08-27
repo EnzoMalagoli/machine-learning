@@ -28,7 +28,7 @@ ax.set_ylabel("Salário Anual")
 ax.set_xticks([])
 ax.grid(axis="y", linestyle="--", alpha=0.6)
 
-# Exportar como SVG
+
 buffer = BytesIO()
 plt.savefig(buffer, format="svg", bbox_inches="tight")
 buffer.seek(0)
