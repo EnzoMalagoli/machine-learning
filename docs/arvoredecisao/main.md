@@ -73,6 +73,23 @@ No código, o encoding foi aplicado à variável gênero, convertendo as categor
     --8<-- "./docs/arvoredecisao/encodcatva.py"
     ```
 
+**Normalização**
+
+A normalização é o processo de reescalar os valores numéricos de forma que fiquem dentro de um intervalo fixo, normalmente entre 0 e 1. Isso facilita a comparação entre variáveis que possuem unidades ou magnitudes diferentes, evitando que atributos com valores muito altos dominem a análise.
+
+No código, a normalização foi aplicada às colunas idade e salário anual, transformando seus valores para a faixa de 0 a 1 por meio do método Min-Max Scaling. Dessa forma, ambas as variáveis passam a estar na mesma escala, tornando o conjunto de dados mais consistente e adequado para a modelagem.
+
+=== "Result"
+
+    ``` python exec="on" html="0"
+    --8<-- "./docs/arvoredecisao/normalizacao.py"
+    ```
+=== "Code"
+
+    ``` python
+    --8<-- "./docs/arvoredecisao/normalizacao.py"
+    ```
+
 ## Divisão dos Dados
 
 ## Treinamento do Modelo
