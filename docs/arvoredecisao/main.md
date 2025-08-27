@@ -19,13 +19,13 @@ Entre as variáveis explicativas, temos Gender (categórica), Age (numérica) e 
 
 - **Purchased:** Se o cliente realizou a compra
 
-**Visualizações**
+**Estatísticas Descritivas e Visualizações**
 
 O gráfico mostra a relação entre idade e salário dos clientes, destacando quem realizou a compra e quem não comprou:
 
 === "Result"
 
-    ``` python exec="on" html="0"
+    ``` python exec="on" html="1"
     --8<-- "./docs/arvoredecisao/grafdispersao.py"
     ```
 === "Code"
@@ -33,7 +33,41 @@ O gráfico mostra a relação entre idade e salário dos clientes, destacando qu
     ``` python
     --8<-- "./docs/arvoredecisao/grafdispersao.py"
     ```
-Fazer uma avaliação dos resultados do gráfico
+
+!!! info
+    A visualização deixa claro que idade e salário exercem influência relevante no comportamento de compra
+
+O próximo gráfico apresenta a distribuição de clientes por gênero:
+
+=== "Result"
+
+    ``` python exec="on" html="1"
+    --8<-- "./docs/arvoredecisao/barras.py"
+    ```
+=== "Code"
+
+    ``` python
+    --8<-- "./docs/arvoredecisao/barras.py"
+    ```
+
+!!! info 
+    Observa-se que há uma leve predominância de mulheres no dataset.
+
+O último gráfico apresenta a distribuição do salário anual dos clientes, permitindo visualizar a mediana, a dispersão dos valores e a presença de possíveis extremos.
+
+=== "Result"
+
+    ``` python exec="on" html="1"
+    --8<-- "./docs/arvoredecisao/boxplot.py"
+    ```
+=== "Code"
+
+    ``` python
+    --8<-- "./docs/arvoredecisao/boxplot.py"
+    ```
+
+!!! info
+    O gráfico evidencia que a maior parte dos salários está concentrada em uma faixa intermediária, entre aproximadamente 50 mil e 90 mil, com a mediana em torno de 70 mil.
 
 ## Pré-processamento
 
