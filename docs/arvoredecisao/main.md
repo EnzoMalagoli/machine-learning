@@ -21,6 +21,20 @@ Entre as variáveis explicativas, temos Gender (categórica), Age (numérica) e 
 
 **Visualizações**
 
+O gráfico mostra a relação entre idade e salário dos clientes, destacando quem realizou a compra e quem não comprou:
+
+=== "Result"
+
+    ``` python exec="on" html="0"
+    --8<-- "./docs/arvoredecisao/grafdispersao.py"
+    ```
+=== "Code"
+
+    ``` python
+    --8<-- "./docs/arvoredecisao/grafdispersao.py"
+    ```
+Fazer uma avaliação dos resultados do gráfico
+
 ## Pré-processamento
 
 Pré-processamento de dados brutos deve ser a primeira etapa ao lidar com datasets de todos tamanhos.
@@ -43,6 +57,21 @@ No código, a limpeza foi feita dessa forma: possíveis valores vazios em idade,
     ```
 
 **Encoding Categorical Variables**
+
+O processo de encoding de variáveis categóricas transforma informações em formato de texto em valores numéricos, permitindo que algoritmos de Machine Learning consigam utilizá-las em seus cálculos.
+
+No código, o encoding foi aplicado à variável gênero, convertendo as categorias “Male” e “Female” em valores numéricos (1 e 0). Dessa forma, a base de dados mantém todas as colunas originais, mas agora com a variável categórica representada de maneira adequada para ser usada em algoritmos de classificação.
+
+=== "Result"
+
+    ``` python exec="on" html="0"
+    --8<-- "./docs/arvoredecisao/encodcatva.py"
+    ```
+=== "Code"
+
+    ``` python
+    --8<-- "./docs/arvoredecisao/encodcatva.py"
+    ```
 
 ## Divisão dos Dados
 
