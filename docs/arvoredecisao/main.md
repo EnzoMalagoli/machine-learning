@@ -1,3 +1,9 @@
+**Projeto Árvore de Decisão**
+
+**Cars Purchase Decision**
+
+Este projeto tem como objetivo aplicar técnicas de Machine Learning para compreender os fatores que influenciam a decisão de compra de automóveis. A partir de um conjunto de dados com informações sobre idade, gênero e salário anual dos clientes, foi construída uma árvore de decisão capaz de classificar se um indivíduo provavelmente realizará a compra ou não.
+
 ## Exploração dos Dados
 
 **Estatísticas Descritivas**
@@ -128,7 +134,7 @@ No código, a normalização foi aplicada às colunas idade e salário anual, tr
 
 Após o pré-processamento, o conjunto de dados precisa ser separado em duas partes: uma para treinamento e outra para teste. Essa divisão é fundamental para que o modelo de Machine Learning aprenda padrões a partir de um grupo de exemplos e, depois, seja avaliado em dados que ainda não foram vistos. Dessa forma, é possível medir a capacidade de generalização do modelo e evitar que ele apenas memorize os exemplos fornecidos.
 
-No código, os atributos escolhidos como preditores foram gênero, idade e salário anual, enquanto a variável-alvo foi Purchased, que indica se o cliente comprou ou não o produto. A divisão foi feita em 70% para treino e 30% para teste, garantindo que a proporção de clientes que compraram e não compraram fosse preservada em ambos os subconjuntos. Essa separação assegura que a avaliação futura seja mais confiável e representativa.
+No código, os atributos escolhidos como preditores foram **gênero, idade e salário anual**, enquanto a variável-alvo foi **Purchased**, que indica se o cliente comprou ou não o produto. A divisão foi feita em **70% para treino** e **30% para teste**, garantindo que a proporção de clientes que compraram e não compraram fosse preservada em ambos os subconjuntos.
 
 === "Result"
 
@@ -141,7 +147,7 @@ No código, os atributos escolhidos como preditores foram gênero, idade e salá
     --8<-- "./docs/arvoredecisao/divisao.py"
     ```
 
-## Treinamento do Modelo
+## Treinamento e Avaliação do Modelo
 
 Essa é a árvore de decisão feita:
 
@@ -160,7 +166,5 @@ Essa é a árvore de decisão feita:
     ``` python
     --8<-- "./docs/arvoredecisao/tree.py"
     ```
-
-## Avaliação do Modelo
 
 ## Conclusão

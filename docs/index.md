@@ -1,5 +1,17 @@
 # Exercícios Machine Learning - Enzo Malagoli
 
+Esse pages tem como objetivo ser um template para todas entregas relacionadas à disciplina de Machine Learning do 4º semestre de Sistemas de Informação na ESPM/SP.
+
+!!! info
+    - **Autor:** Enzo De Marchi Malagoli
+    - **Disciplina:** Machine Learning
+    - **Professor:** Humberto Sandmann
+
+<p align="center">
+  <img src="assets/greninja.gif" alt="Greninja" width="500">
+</p>
+
+
 
 ## Entregas
 
@@ -9,63 +21,3 @@
 - [ ] Exercício 4
 - [ ] Projeto
 
-## Diagramas
-
-Use o [Mermaid](https://mermaid.js.org/intro/){:target='_blank'} para criar os diagramas de documentação.
-
-[Mermaid Live Editor](https://mermaid.live/){:target='_blank'}
-
-
-``` mermaid
-flowchart TD
-    Deployment:::orange -->|defines| ReplicaSet
-    ReplicaSet -->|manages| pod((Pod))
-    pod:::red -->|runs| Container
-    Deployment -->|scales| pod
-    Deployment -->|updates| pod
-
-    Service:::orange -->|exposes| pod
-
-    subgraph  
-        ConfigMap:::orange
-        Secret:::orange
-    end
-
-    ConfigMap --> Deployment
-    Secret --> Deployment
-    classDef red fill:#f55
-    classDef orange fill:#ffa500
-```
-
-
-
-## Códigos
-
-=== "De um arquivo remoto"
-
-    ``` { .yaml .copy .select linenums='1' title="main.yaml" }
-    --8<-- "https://raw.githubusercontent.com/hsandmann/documentation.template/refs/heads/main/.github/workflows/main.yaml"
-    ```
-
-=== "Anotações no código"
-
-    ``` { .yaml title="compose.yaml" }
-    name: app
-
-        db:
-            image: postgres:17
-            environment:
-                POSTGRES_DB: ${POSTGRES_DB:-projeto} # (1)!
-                POSTGRES_USER: ${POSTGRES_USER:-projeto}
-                POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-projeto}
-            ports:
-                - 5432:5432 #(2)!
-    ```
-
-    1.  Caso a variável de ambiente `POSTGRES_DB` não exista ou seja nula - não seja definida no arquivo `.env` - o valor padrão será `projeto`. Vide [documentação](https://docs.docker.com/reference/compose-file/interpolation/){target='_blank'}.
-
-    2. Aqui é feito um túnel da porta 5432 do container do banco de dados para a porta 5432 do host (no caso localhost). Em um ambiente de produção, essa porta não deve ser exposta, pois ninguém de fora do compose deveria acessar o banco de dados diretamente.
-
-## Referências
-
-[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/){:target='_blank'}

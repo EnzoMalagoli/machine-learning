@@ -1,5 +1,5 @@
 import matplotlib
-matplotlib.use("Agg")  # backend não interativo (para Pages)
+matplotlib.use("Agg") 
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -9,22 +9,22 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score
 
-# ----------------- PREPROCESS (baseado no seu 2º código) -----------------
+# PREPROCESS 
 def preprocess(df):
-    # 1) Tratar possíveis valores ausentes
+   
     df["Age"].fillna(df["Age"].median(), inplace=True)
     df["Gender"].fillna(df["Gender"].mode()[0], inplace=True)
     df["AnnualSalary"].fillna(df["AnnualSalary"].median(), inplace=True)
 
-    # 2) Encoding da variável categórica
+ 
     enc = LabelEncoder()
-    df["Gender"] = enc.fit_transform(df["Gender"])  # Female=0, Male=1 (em geral)
+    df["Gender"] = enc.fit_transform(df["Gender"])  # Female=0, Male=1
 
-    # 3) Selecionar features
+  
     features = ["Gender", "Age", "AnnualSalary"]
     return df[features]
 
-# ----------------- CARREGAR DADOS -----------------
+# CARREGAR DADOS 
 url = "https://raw.githubusercontent.com/EnzoMalagoli/machine-learning/refs/heads/main/data/car_data.csv"
 df = pd.read_csv(url)
 
@@ -32,21 +32,21 @@ df = pd.read_csv(url)
 X = preprocess(df)
 y = df["Purchased"]
 
-# ----------------- TRAIN / TEST SPLIT -----------------
+# TRAIN / TEST SPLIT 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3, random_state=42, stratify=y
 )
 
-# ----------------- DECISION TREE -----------------
-clf = tree.DecisionTreeClassifier(max_depth=4, random_state=42)  # max_depth p/ árvore mais legível
+# DECISION TREE
+clf = tree.DecisionTreeClassifier(max_depth=4, random_state=42) 
 clf.fit(X_train, y_train)
 
-# ----------------- AVALIAÇÃO -----------------
+# AVALIAÇÃO 
 y_pred = clf.predict(X_test)
 acc = accuracy_score(y_test, y_pred)
 print(f"Accuracy: {acc:.4f}")
 
-# ----------------- PLOTAR ÁRVORE (SVG no stdout) -----------------
+#  PLOTAR ÁRVORE 
 plt.figure(figsize=(14, 10))
 tree.plot_tree(
     clf,
