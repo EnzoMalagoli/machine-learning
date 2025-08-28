@@ -1,6 +1,6 @@
-# Exercícios Machine Learning - Enzo Malagoli
+# Entregas de Machine Learning
 
-Esse pages tem como objetivo ser um template para todas entregas relacionadas à disciplina de Machine Learning do 4º semestre de Sistemas de Informação na ESPM/SP.
+Me chamo Enzo Malagoli, e esse pages tem como objetivo ser um template para todas entregas feitas na disciplina de Machine Learning do 4º semestre de Sistemas de Informação na ESPM/SP.
 
 
 
