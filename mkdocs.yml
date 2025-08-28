@@ -10,14 +10,14 @@ theme:
     # primary: grey
     # Light mode
     - scheme: default
-      primary: grey
+      primary: deep-purple
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
 
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
-      primary: grey
+      primary: deep-purple
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
@@ -25,14 +25,14 @@ theme:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default 
-      primary: grey
+      primary: deep-purple
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
 
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
-      primary: grey
+      primary: deep-purple
       scheme: slate
       toggle:
         icon: material/toggle-switch

@@ -4,7 +4,7 @@
 
 Este projeto tem como objetivo aplicar técnicas de Machine Learning para compreender os fatores que influenciam a decisão de compra de automóveis. A partir de um conjunto de dados com informações sobre idade, gênero e salário anual dos clientes, foi construída uma árvore de decisão capaz de classificar se um indivíduo provavelmente realizará a compra ou não.
 
-## Exploração dos Dados
+## **Exploração dos Dados**
 
 **Estatísticas Descritivas**
 
@@ -75,7 +75,7 @@ O último gráfico apresenta a distribuição do salário anual dos clientes, pe
 !!! info
     O gráfico evidencia que a maior parte dos salários está concentrada em uma faixa intermediária, entre aproximadamente 50 mil e 90 mil, com a mediana em torno de 70 mil.
 
-## Pré-processamento
+## **Pré-processamento**
 
 Pré-processamento de dados brutos deve ser a primeira etapa ao lidar com datasets de todos tamanhos.
 
@@ -130,11 +130,11 @@ No código, a normalização foi aplicada às colunas idade e salário anual, tr
     --8<-- "./docs/arvoredecisao/normalizacao.py"
     ```
 
-## Divisão dos Dados
+## **Divisão dos Dados**
 
 Após o pré-processamento, o conjunto de dados precisa ser separado em duas partes: uma para treinamento e outra para teste. Essa divisão é fundamental para que o modelo de Machine Learning aprenda padrões a partir de um grupo de exemplos e, depois, seja avaliado em dados que ainda não foram vistos. Dessa forma, é possível medir a capacidade de generalização do modelo e evitar que ele apenas memorize os exemplos fornecidos.
 
-No código, os atributos escolhidos como preditores foram **gênero, idade e salário anual**, enquanto a variável-alvo foi **Purchased**, que indica se o cliente comprou ou não o produto. A divisão foi feita em **70% para treino** e **30% para teste**, garantindo que a proporção de clientes que compraram e não compraram fosse preservada em ambos os subconjuntos.
+No código, os atributos escolhidos como preditores foram **gênero**, **idade** e **salário anual**, enquanto a variável-alvo foi **Purchased**, que indica se o cliente comprou ou não o produto. A divisão foi feita em **70% para treino** e **30% para teste**, garantindo que a proporção de clientes que compraram e não compraram fosse preservada em ambos os subconjuntos.
 
 === "Result"
 
@@ -147,7 +147,7 @@ No código, os atributos escolhidos como preditores foram **gênero, idade e sal
     --8<-- "./docs/arvoredecisao/divisao.py"
     ```
 
-## Treinamento e Avaliação do Modelo
+## **Treinamento e Avaliação do Modelo**
 
 Por fim, esta é a árvore de decisão final:
 
@@ -167,5 +167,12 @@ Por fim, esta é a árvore de decisão final:
     --8<-- "./docs/arvoredecisao/tree.py"
     ```
 
+O modelo de árvore de decisão foi treinado com as variáveis **idade**, **gênero** e **salário anual**, atingindo uma acurácia de aproximadamente **90%**. A análise da árvore mostra que **idade** e **salário** foram os principais fatores utilizados para separar compradores e não compradores, enquanto o gênero teve impacto secundário.
 
-## Conclusão
+## **Conclusão**
+
+O projeto teve início com a exploração do dataset, etapa em que foi possível identificar padrões relevantes, como uma leve predominância do público feminino e a influência direta de idade e renda no comportamento de compra. Durante essa fase, também foi necessário lidar com valores ausentes e normalizar variáveis para tornar o conjunto adequado à modelagem.
+
+Após o pré-processamento, o modelo de árvore de decisão foi treinado e alcançou uma acurácia em torno de **90%**, indicando boa capacidade de identificar corretamente os clientes com maior ou menor propensão à compra. A análise da árvore revelou que idade e salário anual são os fatores que mais impactam as previsões, enquanto o gênero aparece em pontos específicos, mas com menor importância.
+
+Em linhas gerais, o trabalho atendeu ao objetivo de desenvolver um protótipo preditivo baseado em dados demográficos e socioeconômicos. O modelo se mostrou eficiente e, com ajustes adicionais, tem potencial para ser expandido em aplicações mais completas no apoio a decisões de mercado.
