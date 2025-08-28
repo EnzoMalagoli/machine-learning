@@ -149,7 +149,7 @@ No código, os atributos escolhidos como preditores foram **gênero, idade e sal
 
 ## Treinamento e Avaliação do Modelo
 
-Essa é a árvore de decisão feita:
+Por fim, esta é a árvore de decisão final:
 
 === "Decision Tree"
 
@@ -166,5 +166,6 @@ Essa é a árvore de decisão feita:
     ``` python
     --8<-- "./docs/arvoredecisao/tree.py"
     ```
+
 
 ## Conclusão
