@@ -11,16 +11,22 @@ from sklearn.metrics import accuracy_score
 
 # PREPROCESS 
 def preprocess(df):
-   
+
+    # Data cleaning
     df["Age"].fillna(df["Age"].median(), inplace=True)
     df["Gender"].fillna(df["Gender"].mode()[0], inplace=True)
     df["AnnualSalary"].fillna(df["AnnualSalary"].median(), inplace=True)
 
- 
+    # Encoding
     enc = LabelEncoder()
     df["Gender"] = enc.fit_transform(df["Gender"])  # Female=0, Male=1
 
-  
+    # Normalização Min–Max
+    for col in ["Age", "AnnualSalary"]:
+        cmin, cmax = df[col].min(), df[col].max()
+        df[col] = 0.0 if cmax == cmin else (df[col] - cmin) / (cmax - cmin)
+
+    # Features finais
     features = ["Gender", "Age", "AnnualSalary"]
     return df[features]
 
