@@ -1,4 +1,6 @@
-**Algortimo KNN**
+**Algoritmo KNN**
+
+O algoritmo K-Nearest Neighbors (KNN) é uma técnica de aprendizado supervisionado usada para classificação e regressão. Ele funciona comparando uma nova amostra com as mais próximas no conjunto de treino, de acordo com uma medida de distância, geralmente a euclidiana. Na etapa de classificação, a classe atribuída é definida pela maioria entre os k vizinhos mais próximos.
 
 **Cars Purchase Decision**
 
@@ -148,3 +150,29 @@ No código, os atributos escolhidos como preditores foram **gênero**, **idade**
     ```
 
 ## **Implementação KNN**
+
+### From Scratch
+
+=== "Result"
+
+    ``` python exec="on" html="0"
+    --8<-- "./docs/KNN/algoritmo.py"
+    ```
+=== "Code"
+
+    ``` python
+    --8<-- "./docs/KNN/algoritmo.py"
+    ```
+
+### Usando Scikit-Learn
+
+=== "Result"
+
+    ``` python exec="on" html="0"
+    --8<-- "./docs/KNN/algoritmo2.py"
+    ```
+=== "Code"
+
+    ``` python
+    --8<-- "./docs/KNN/algoritmo2.py"
+    ```

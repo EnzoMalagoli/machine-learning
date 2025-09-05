@@ -135,7 +135,8 @@ nav:
   - Home: index.md
   - Exercícios:
     - Árvore de Decisão: ./arvoredecisao/main.md
-    - Exercício 2: ./roteiro2/main.md
-    - Exercício 3: ./roteiro3/main.md
-    - Exercício 4: ./roteiro4/main.md
+    - K-Nearest Neighbors: ./KNN/main.md
+    #- Exercício 2: ./roteiro2/main.md
+    #- Exercício 3: ./roteiro3/main.md
+    #- Exercício 4: ./roteiro4/main.md
   - Projeto Integrado: ./projeto/main.md
