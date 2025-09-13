@@ -176,3 +176,8 @@ No código, os atributos escolhidos como preditores foram **gênero**, **idade**
     ``` python
     --8<-- "./docs/KNN/algoritmo2.py"
     ```
+=== "Gráfico"
+
+    ``` python exec="on" html="0"
+    --8<-- "./docs/KNN/graf.py"
+    ```

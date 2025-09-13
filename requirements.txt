@@ -21,3 +21,4 @@ seaborn
 tabulate
 yfinance
 graphviz
+seaborn
