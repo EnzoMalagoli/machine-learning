@@ -1,72 +1,76 @@
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
-from io import BytesIO
+from io import StringIO
+import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.metrics import accuracy_score
 
-plt.figure(figsize=(12, 10))
-
-# ---------------- Carregar e preprocessar ----------------
+# Carregar dataset
 url = "https://raw.githubusercontent.com/EnzoMalagoli/machine-learning/refs/heads/main/data/car_data.csv"
 df = pd.read_csv(url)
 
-# 1) Cleaning
+# Pré-processamento básico
 df["Age"].fillna(df["Age"].median(), inplace=True)
-df["Gender"].fillna(df["Gender"].mode()[0], inplace=True)
 df["AnnualSalary"].fillna(df["AnnualSalary"].median(), inplace=True)
+df["Gender"].fillna(df["Gender"].mode()[0], inplace=True)
 
-# 2) Encoding (Gender -> 0/1)
+# Encoder de Gender (não usado no gráfico, mas para modelo completo poderia ser usado)
 enc = LabelEncoder()
-df["Gender"] = enc.fit_transform(df["Gender"])  # Female=0, Male=1
+df["Gender"] = enc.fit_transform(df["Gender"])
 
-# 3) Normalização Min–Max (para KNN e para o grid da fronteira)
-for col in ["Age", "AnnualSalary"]:
-    cmin, cmax = df[col].min(), df[col].max()
-    df[col] = 0.0 if cmax == cmin else (df[col] - cmin) / (cmax - cmin)
+# Escolher apenas 2 features para plotar
+X = df[["Age", "AnnualSalary"]].values
+y = df["Purchased"].values
 
-# Features e alvo
-X = df[["Gender", "Age", "AnnualSalary"]].to_numpy(dtype=float)
-y = df["Purchased"].to_numpy(dtype=int)
+# Normalização
+scaler = StandardScaler()
+X = scaler.fit_transform(X)
 
-# ---------------- Split + Treino KNN ----------------
+# Split treino/teste
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.30, random_state=42, stratify=y
+    X, y, test_size=0.3, random_state=42, stratify=y
 )
-knn = KNeighborsClassifier(n_neighbors=5)  # ajuste k se quiser
+
+# Treinar KNN
+knn = KNeighborsClassifier(n_neighbors=3)
 knn.fit(X_train, y_train)
+predictions = knn.predict(X_test)
 
-# ---------------- Fronteira de decisão (Age x Salary) fixando Gender ----------------
-GENDER_FIXED = 1  # 1=Male, 0=Female (mude aqui para ver a outra fronteira)
+print(f"Accuracy: {accuracy_score(y_test, predictions):.2f}")
 
-# grade em Age e AnnualSalary (ambos normalizados [0,1])
-h = 0.01
-age_min, age_max = 0.0, 1.0
-sal_min, sal_max = 0.0, 1.0
-xx, yy = np.meshgrid(np.arange(age_min, age_max + h, h),
-                     np.arange(sal_min, sal_max + h, h))
+# Criar grade para decisão
+h = 0.02
+x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+xx, yy = np.meshgrid(
+    np.arange(x_min, x_max, h),
+    np.arange(y_min, y_max, h)
+)
 
-# monta grid com Gender fixo
-grid = np.c_[np.full(xx.size, GENDER_FIXED), xx.ravel(), yy.ravel()]
-Z = knn.predict(grid).reshape(xx.shape)
+Z = knn.predict(np.c_[xx.ravel(), yy.ravel()])
+Z = Z.reshape(xx.shape)
 
-# pontos reais do gênero escolhido
-mask = (df["Gender"] == GENDER_FIXED)
-Xplot = df.loc[mask, ["Age", "AnnualSalary"]].to_numpy()
-yplot = df.loc[mask, "Purchased"].to_numpy()
+# Plot
+plt.figure(figsize=(12, 8))
+plt.contourf(xx, yy, Z, cmap=plt.cm.RdYlBu, alpha=0.3)
 
-# ---------------- Plot ----------------
-plt.contourf(xx, yy, Z, cmap=plt.cm.RdYlBu, alpha=0.30)
-sns.scatterplot(x=Xplot[:, 0], y=Xplot[:, 1], hue=yplot, style=yplot, palette="deep", s=70)
-plt.xlabel("Age (normalizado)")
-plt.ylabel("AnnualSalary (normalizado)")
-plt.title(f"KNN Decision Boundary (k={knn.n_neighbors}) — Gender={'Male' if GENDER_FIXED==1 else 'Female'}")
-plt.legend(title="Purchased")
+# Plotar pontos do dataset
+for class_value in np.unique(y):
+    plt.scatter(
+        X[y == class_value, 0],
+        X[y == class_value, 1],
+        label=f"Classe {class_value}",
+        edgecolor="k"
+    )
 
-# ---------------- Exportar SVG para o Pages ----------------
-buffer = BytesIO()
-plt.savefig(buffer, format="svg", transparent=True, bbox_inches="tight")
-buffer.seek(0)
-print(buffer.getvalue().decode("utf-8"))
+plt.xlabel("Idade (normalizada)")
+plt.ylabel("Salário Anual (normalizado)")
+plt.title("KNN Decision Boundary (k=3)")
+plt.legend()
+
+# Exportar SVG pro mkdocs
+buffer = StringIO()
+plt.savefig(buffer, format="svg", transparent=True)
+print(buffer.getvalue())

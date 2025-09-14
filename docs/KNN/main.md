@@ -178,6 +178,10 @@ No código, os atributos escolhidos como preditores foram **gênero**, **idade**
     ```
 === "Gráfico"
 
-    ``` python exec="on" html="0"
+    ``` python exec="on" html="1"
     --8<-- "./docs/KNN/graf.py"
     ```
+
+A etapa de classificação foi conduzida utilizando o algoritmo K-Nearest Neighbors (KNN) em duas abordagens distintas. Primeiramente, foi implementado um classificador do zero, no qual as etapas de pré-processamento (limpeza, encoding e normalização) foram aplicadas antes da divisão em treino e teste. Esse modelo segue a lógica central do KNN: calcular distâncias entre os pontos, selecionar os vizinhos mais próximos e atribuir a classe mais frequente. Apesar de simples, essa versão manual ajudou a compreender os mecanismos internos do algoritmo.
+
+Em seguida, a mesma tarefa foi realizada com o KNeighborsClassifier da biblioteca Scikit-Learn, que oferece uma implementação mais robusta e otimizada. A acurácia obtida em ambas as versões foi semelhante, demonstrando que o pré-processamento foi eficaz e que o modelo conseguiu identificar padrões relevantes nos dados. Além disso, a visualização da fronteira de decisão mostrou de forma clara como o KNN separa os clientes que compraram dos que não compraram, destacando sua capacidade de criar limites não lineares adaptados à distribuição real das variáveis de idade e salário.
