@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-# ===================== KNN (seu classificador) =====================
+
 class KNNClassifier:
     def __init__(self, k=3):
         self.k = k
@@ -25,7 +25,7 @@ class KNNClassifier:
         vals, counts = np.unique(k_labels, return_counts=True)
         return vals[np.argmax(counts)]
 
-# ===================== Pré-processamento (3 etapas) =====================
+
 def preprocess(df):
     # 1) Data cleaning
     df["Age"].fillna(df["Age"].median(), inplace=True)
@@ -35,28 +35,27 @@ def preprocess(df):
     # 2) Encoding (Gender -> 0/1)
     df["Gender"] = df["Gender"].map({"Female": 0, "Male": 1})
 
-    # 3) Normalização Min–Max (Age, AnnualSalary)
+
     for col in ["Age", "AnnualSalary"]:
         cmin, cmax = df[col].min(), df[col].max()
         df[col] = 0.0 if cmax == cmin else (df[col] - cmin) / (cmax - cmin)
 
-    # Features finais e alvo
+
     X = df[["Gender", "Age", "AnnualSalary"]].to_numpy(dtype=float)
     y = df["Purchased"].to_numpy(dtype=int)
     return X, y
 
-# Carregar dados e preparar
+
 url = "https://raw.githubusercontent.com/EnzoMalagoli/machine-learning/refs/heads/main/data/car_data.csv"
 df = pd.read_csv(url)
 X, y = preprocess(df)
 
-# Split treino/teste 
+
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.30, random_state=42, stratify=y
 )
 
-# Treino e avaliação (KNN)
-knn = KNNClassifier(k=5)  # ajuste k se quiser
+knn = KNNClassifier(k=5)
 knn.fit(X_train, y_train)
 y_pred = knn.predict(X_test)
 
