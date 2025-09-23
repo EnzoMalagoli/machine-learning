@@ -137,6 +137,7 @@ nav:
     - Árvore de Decisão: ./arvoredecisao/main.md
     - K-Nearest Neighbors: ./KNN/main.md
     - K-Means: ./KMEANS/main.md
+    - Métricas: ./metricas/main.md
     #- Exercício 2: ./roteiro2/main.md
     #- Exercício 3: ./roteiro3/main.md
     #- Exercício 4: ./roteiro4/main.md
