@@ -155,6 +155,8 @@ No código, os atributos escolhidos como preditores foram **gênero**, **idade**
 
 ### Usando Scikit-Learn
 
+A aplicação do KNN resultou em uma boa performance na tarefa de classificação, com acurácia próxima de 91%. O modelo conseguiu diferenciar de forma consistente as classes 0 (não comprou) e 1 (comprou), mostrando que a proximidade entre idade, gênero e salário anual é suficiente para prever o comportamento de compra. A matriz de confusão evidenciou poucos erros, reforçando a capacidade do algoritmo em generalizar padrões do conjunto de dados.
+
 === "Result"
 
     ``` python exec="on" html="0"
@@ -167,8 +169,6 @@ No código, os atributos escolhidos como preditores foram **gênero**, **idade**
     ```
 
 ## **Implementação K-Means**
-
-### Usando Scikit-Learn
 
 A análise com o algoritmo K-Means permitiu identificar dois grupos principais no conjunto de dados, definidos a partir da combinação entre idade e salário anual. Cada cor no gráfico representa um cluster, enquanto as estrelas vermelhas marcam os centróides, ou seja, os pontos médios que caracterizam cada grupo. Essa separação evidencia padrões de comportamento entre os indivíduos, como faixas salariais e idades que tendem a se agrupar. Apesar de não utilizar os rótulos originais (como no KNN), o K-Means oferece uma visão exploratória útil para identificar tendências e estruturas ocultas nos dados.
 
