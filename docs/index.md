@@ -19,9 +19,11 @@ Me chamo Enzo Malagoli, e esse pages tem como objetivo ser um template para toda
 
 ## Entregas
 
-- [x] Exercício 1 - Data 29/08/2025
-- [ ] Exercício 2
-- [ ] Exercício 3
-- [ ] Exercício 4
-- [ ] Projeto
+- [x] Árvore de Decisão - Data 29/08/2025
+- [x] K-Nearest Neighbors - Data 16/09/2025
+- [x] K Means - Data 28/09/2025
+- [x] Métricas de Avaliação - Data 28/09/2025
+- [x] Random Forest - Data 28/10/2025
+
+- [x] Projeto de Dados 1 - Data 30/09/2025
 
