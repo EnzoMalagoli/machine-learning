@@ -24,6 +24,7 @@ Me chamo Enzo Malagoli, e esse pages tem como objetivo ser um template para toda
 - [x] K Means - Data 28/09/2025
 - [x] Métricas de Avaliação - Data 28/09/2025
 - [x] Random Forest - Data 28/10/2025
-
+- [x] Page Rank - Data 18/11/2025
+- [x] PySpark - Data 18/11/2025
 - [x] Projeto de Dados 1 - Data 30/09/2025
 
