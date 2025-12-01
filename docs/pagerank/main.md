@@ -1,0 +1,11 @@
+**PageRank Algorithm**
+
+O PageRank é um algoritmo baseado em grafos desenvolvido por Larry Page e Sergey Brin para medir a importância relativa de nós em uma rede. Ele modela a navegação como um “surfista aleatório” que, a cada passo, segue um link de saída da página atual com certa probabilidade e, com a probabilidade complementar, teleporta para qualquer outro nó do grafo. Dessa forma, páginas (ou vértices) que recebem muitos links de outros nós importantes acumulam um valor de PageRank mais elevado, refletindo maior relevância estrutural dentro da rede.
+
+Matematicamente, o PageRank é definido como a distribuição estacionária de uma cadeia de Markov sobre o grafo, controlada por um fator de amortecimento que equilibra a influência da estrutura de links com o comportamento aleatório do usuário. Essa abordagem reduz o impacto de ruídos locais, é relativamente robusta a manipulações simples de links e permite ranquear nós em redes grandes de forma eficiente, tornando-se um dos algoritmos fundamentais em análise de redes complexas.
+
+**High Energy Physics Citation Network**
+
+Neste projeto, o PageRank é aplicado a uma rede de citações científicas, em que cada nó representa um artigo e cada aresta dirigida A → B indica que o artigo A cita o artigo B. Diferentemente de um problema clássico de classificação supervisionada, o objetivo aqui é medir a importância estrutural dos trabalhos dentro do campo, identificando quais papers funcionam como referências centrais porque são citados por muitos outros artigos relevantes.
+
+A partir do dataset de Física de Altas Energias, a rede de citações é carregada como um grafo dirigido e o algoritmo PageRank é implementado do zero, seguindo o modelo do surfista aleatório. Em seguida, os resultados são comparados com a implementação pronta do NetworkX, analisando-se os dez artigos com maior score e discutindo como a variação do fator de amortecimento afeta o ranqueamento. Dessa forma, o exercício conecta teoria de grafos, métodos numéricos e interpretação substantiva dos nós mais influentes na literatura científica.
